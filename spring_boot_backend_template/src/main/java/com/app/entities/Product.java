@@ -15,8 +15,7 @@ public class Product extends BaseEntity {
 	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable = false)
-	private String brand;
+	
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
@@ -41,9 +40,8 @@ public class Product extends BaseEntity {
 	@JoinColumn(name = "seller_id")
 	private Seller sellerId;
 	
-	public Product(String name,String brand,Category category,double price) {
+	public Product(String name,Category category,double price) {
 		this.name = name;
-		this.brand = brand;
 		this.category = category;
 		this.price = price;
 		manufacteDate = LocalDate.now();
@@ -51,7 +49,7 @@ public class Product extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return " Product: "+name+"   "+brand+"   "+category+"   "+price+"   "+manufacteDate+"\n";
+		return " Product: "+name+"   "+"   "+category+"   "+price+"   "+manufacteDate+"\n";
 	}
 }
 
@@ -60,18 +58,3 @@ public class Product extends BaseEntity {
 
 
 
-//@Entity
-//@Getter
-//@Setter
-//public class Product extends BaseEntity {
-//
-//    @ManyToOne
-//    @JoinColumn(name = "order_id")
-//    private Order_detail orders;
-//    
-//    @ManyToOne
-//    @JoinColumn(name = "seller_id")
-//    private Seller seller;
-//    
-//    // Other fields, constructors, toString method
-//}

@@ -1,6 +1,7 @@
 package com.app.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,13 +10,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Address extends BaseEntity{
-	
-	private String city;
-	
+	@NotBlank
+    private String city;
+	@NotBlank
 	private String state;
 	
+	@Column(nullable = false)
 	private String zip;
-	
+	@NotBlank
 	private String country;
 	
 	@ManyToOne//(fetch=FetchType.LAZY) its by default

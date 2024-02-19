@@ -8,18 +8,14 @@ import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 
 import lombok.*;
+import lombok.Builder.Default;
 
 @Entity
 @Setter
 @Getter
 public class Order_detail extends BaseEntity{
 	
-	@ManyToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customerId;
 	
-	@OneToMany(mappedBy = "orderId",cascade = CascadeType.ALL)
-	private List<Product> products = new ArrayList<>();
 	
 	@Column(name = "order_date")
 	private LocalDate orderDate;
@@ -32,6 +28,12 @@ public class Order_detail extends BaseEntity{
 	public Order_detail(int quantity) {
 		this.quantity = quantity;
 	}
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private Customer customerId;
+	
+	@OneToMany(mappedBy = "orderId",cascade = CascadeType.ALL)
+	private List<Product> products = new ArrayList<>();
 	
 	//helper methods
 	public boolean addProduct(Product p) {
@@ -63,17 +65,3 @@ public class Order_detail extends BaseEntity{
 
 
 
-//@Entity
-//@Getter
-//@Setter
-//public class Order_detail extends BaseEntity {
-//
-//    @ManyToOne
-//    @JoinColumn(name = "customer_id")
-//    private Customer customer;
-//    
-//    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
-//    private List<Product> products = new ArrayList<>();
-//    
-//    // Other fields, constructors, helper methods, toString method
-//}

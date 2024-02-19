@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import lombok.*;
 
@@ -15,7 +16,7 @@ public class Customer extends BaseEntity{
 	
 	
 	
-	
+	@NotBlank
 	private String name;
 	
 	@Column(nullable = false)

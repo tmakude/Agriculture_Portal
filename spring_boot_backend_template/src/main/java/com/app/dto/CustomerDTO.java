@@ -34,7 +34,7 @@ public class CustomerDTO {
 	private String password;
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String confirmPassword;
-	
+	@NotBlank
 	private long phone;
 	private String gender;
 	@JsonProperty(access = Access.READ_ONLY)

@@ -1,8 +1,8 @@
 package com.app.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import javax.validation.constraints.Email;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,27 +10,24 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
-public class SellerDTO {
-	
+public class ProductDTO {
 	@JsonProperty(access = Access.READ_ONLY)
 	private int sellerId;
 	@NotBlank
-	private long phone;
+	private String productname;
 	@NotBlank
-    private String name;
-    @NotBlank
-    @Email
-	private String email;
+	private String categoryName;
 	@NotBlank
-    @JsonProperty(access = Access.WRITE_ONLY)
-	private String password;
+	private double price;
+	@Lob
+	private Byte[] photo;
 	@NotBlank
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private String confirmPassword;
-	
-	
+	private LocalDate manufacteDate;
+	@NotBlank
+	private String description;
 	
 
 }

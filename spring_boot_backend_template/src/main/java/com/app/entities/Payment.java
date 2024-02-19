@@ -3,6 +3,7 @@ package com.app.entities;
 import java.time.LocalDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import lombok.*;
 
@@ -14,8 +15,9 @@ public class Payment extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customerId;
-	
+	@NotBlank
 	private String cardName;
+	@NotBlank
 	private long cardNo;
 	private double amount;
 	private LocalDate paymentDate;
